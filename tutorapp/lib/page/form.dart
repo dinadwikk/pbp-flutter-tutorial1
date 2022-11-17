@@ -26,6 +26,7 @@ class _MyFormPageState extends State<MyFormPage> {
       appBar: AppBar(
         title: Text('Form'),
       ),
+      drawer: Drawer(),
       body: Form(
         key: _formKey,
         child: SingleChildScrollView(
