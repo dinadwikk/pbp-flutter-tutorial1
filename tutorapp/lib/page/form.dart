@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tutorapp/main.dart';
+import 'package:tutorapp/page/to_do_page.dart';
+
 
 class MyFormPage extends StatefulWidget {
   const MyFormPage({super.key});
@@ -26,7 +28,43 @@ class _MyFormPageState extends State<MyFormPage> {
       appBar: AppBar(
         title: Text('Form'),
       ),
-      drawer: Drawer(),
+      drawer: Drawer(
+      child: Column(
+        children: [
+          // Menambahkan clickable menu
+          ListTile(
+            title: const Text('Counter'),
+            onTap: () {
+              // Route menu ke halaman utama
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const MyHomePage()),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text('Form'),
+            onTap: () {
+              // Route menu ke halaman form
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const MyFormPage()),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text('ToDo'),
+                onTap: () {
+                  // Route menu ke halaman to do
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => const ToDoPage()),
+                  );
+            },
+          ),
+        ],
+      ),
+    ),
       body: Form(
         key: _formKey,
         child: SingleChildScrollView(
